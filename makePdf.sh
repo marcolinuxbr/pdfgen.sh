@@ -1,4 +1,5 @@
 #!/bin/bash
+#generate a zip containing many different pdfs (name and content)
 
 PDF1=$(cat  <<'END'
 %PDF-1.7
