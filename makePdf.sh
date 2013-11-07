@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PDF1=$(cat  <<'FIM'
+PDF1=$(cat  <<'END'
 %PDF-1.7
 
 1 0 obj  % entry point
@@ -48,13 +48,13 @@ stream
 BT
 70 50 TD
 /F1 12 Tf
-FIM
+END
 )
 
 
 
 
-PDF2=$(cat  <<'FIM1'
+PDF2=$(cat  <<'END1'
 ET
 endstream
 endobj
@@ -76,12 +76,12 @@ startxref
 492
 %%EOF
 
-FIM1
+END1
 )
 
-PROC="0004567-93.2011.502.0362"
+NUM="012345"
 #ramdom (nanoseconds actually): to make pdfs in bytes different
-STR="(processo: $PROC  random: $(date +%N)) Tj"
+STR="(number: $NUM  random: $(date +%N)) Tj"
 NUMPDF=500
 DATA=$(date +%Y-%m-%d_%H_%M_%S)
 
@@ -89,7 +89,7 @@ DATA=$(date +%Y-%m-%d_%H_%M_%S)
 rm -f makePdf*.pdf
 
 for F in $(seq -f "%03g" 1 $NUMPDF) ;do
- echo "$PDF1 (processo: $PROC  random: $(date +%N) id: $F ) Tj $PDF2" > makePdf-$PROC-$F.pdf
+ echo "$PDF1 (number: $NUM  random: $(date +%N) id: $F ) Tj $PDF2" > makePdf-$NUM-$F.pdf
 done
  rm -f makePdf*.zip
  zip makePdf-$DATA-$NUMPDF-pdfs.zip makePdf*.pdf

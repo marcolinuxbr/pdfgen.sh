@@ -1,4 +1,4 @@
 pdfgen.sh
 =========
 
-pdf generator bash
+pdf generator bash scripts.
